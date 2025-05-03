@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GalaxyController;
+use App\Http\Controllers\Admin\GalaxyController as AdminGalaxyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/galaxies', [GalaxyController::class, 'index']);
+Route::resource('galaxies', AdminGalaxyController::class);
+
 
 require __DIR__.'/auth.php';

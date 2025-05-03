@@ -4,21 +4,28 @@
 
 
 @section('content')
-    
-   @foreach($galaxies as $galaxy)
-   <div class="card" style="width: 18rem;">
 
-  <img src="..." class="card-img-top" alt="...">
 
-  <div class="card-body">
 
-    <h5 class="card-title">Card title</h5>
 
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-    
-  </div>
+
+<div class="d-flex gap-3 row flex-wrap justify-content-around ">
+    @foreach($galaxies as $galaxy)
+    <div class="card col-3">
+
+        <img src="..." class="card-img-top" alt="...">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">{{$galaxy['name']}}</h5>
+
+            <p class="card-text"><strong>{{$galaxy->type->name}}</strong></p>
+
+            <a href="{{route('galaxies.show', $galaxy->id)}}" class="btn btn-primary">More Details</a>
+
+        </div>
+    </div>
+    @endforeach
 </div>
-   @endforeach
 @endsection

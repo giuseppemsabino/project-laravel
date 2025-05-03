@@ -80,6 +80,7 @@ class GalaxiesTableSeeder extends Seeder
             $newGalaxy = new Galaxy();
             
             $newGalaxy->name = $galaxy['name'];
+            $newGalaxy->description = 'no description added yet';
             $newGalaxy->diameter = $galaxy['diameter'];
             $newGalaxy->mass = $galaxy['mass'];
             $newGalaxy->age = $galaxy['age'];
