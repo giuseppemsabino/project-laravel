@@ -5,6 +5,9 @@
 
 @section('content')
 
+<a href="{{route('galaxies.create')}}" class="btn btn-primary"> Add a new Galaxy</a>
+
+
 
 
 
@@ -14,11 +17,11 @@
     @foreach($galaxies as $galaxy)
     <div class="card col-3">
 
-        <img src="..." class="card-img-top" alt="...">
+        <img src="{{asset('storage/'.$galaxy->image)}}" class="card-img-top img-fluid" alt="...">
 
         <div class="card-body text-center">
 
-            <h5 class="card-title">{{$galaxy['name']}}</h5>
+            <h5 class="card-title">{{$galaxy->name}}</h5>
 
             <p class="card-text"><strong>{{$galaxy->type->name}}</strong></p>
 

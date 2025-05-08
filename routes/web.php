@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GalaxyController as AdminGalaxyController;
+use App\Http\Controllers\Admin\PhenomenaController as AdminPhenomenaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('galaxies', AdminGalaxyController::class);
+
+Route::resource('/phenomena', AdminPhenomenaController::class);
 
 
 require __DIR__.'/auth.php';
