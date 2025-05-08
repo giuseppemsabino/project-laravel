@@ -22,7 +22,7 @@ class PhenomenaController extends Controller
      */
     public function create()
     {
-        //
+        return view('phenomena.createPhen');
     }
 
     /**
@@ -30,15 +30,19 @@ class PhenomenaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newPhenomenon = new Phenomenon();
+
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Phenomenon $phenomenon)
     {
-        //
+        return view('phenomena.showPhen', compact('phenomenon'));
     }
 
     /**

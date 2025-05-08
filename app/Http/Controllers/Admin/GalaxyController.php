@@ -38,7 +38,7 @@ class GalaxyController extends Controller
     {
         $data = $request->all();
 
-       // dd($data);
+        // dd($data);
 
         $newGalaxy = new Galaxy();
 
@@ -78,7 +78,7 @@ class GalaxyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Galaxy &$galaxy)
+    public function edit(Galaxy $galaxy)
     {
         $types = Type::all();
         $phenomena = Phenomenon::all();

@@ -7,7 +7,7 @@
 
 <div>
     @foreach($phenomena as $phen)
-        <h1>{{$phen->name}}</h1>
+        <h1 class="">{{$phen->name}}</h1>
     @endforeach
 </div>
 

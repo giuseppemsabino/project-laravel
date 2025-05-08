@@ -10,7 +10,7 @@
 
     <title>The Cosmic Archive </title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
 </head>
 
@@ -24,6 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{{route('galaxies.index')}}">Home</a>
+        <a class="nav-link active" aria-current="page" href="{{route('phenomena.index')}}">Phenomena</a>
         
       </div>
     </div>
