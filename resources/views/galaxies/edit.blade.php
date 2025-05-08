@@ -55,7 +55,7 @@
     <label for="image" class="form-label">Insert Galaxy Image</label>
     <input class="form-control" type="file" name="image" id="image">
         @if($galaxy->image)
-            <img class="img-fluid w-25" src="{{asset('storage/'.$galaxy->image)}}" alt="">
+            <img class="img-fluid w-25" src="{{asset('storage/'.$galaxy->image)}}" alt="image">
         @endif
     </div>
 

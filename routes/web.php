@@ -22,7 +22,9 @@ Route::middleware('auth')->group(function () {
 Route::resource('galaxies', AdminGalaxyController::class)
     ->middleware(['auth','verified']);
 
-    Route::resource('phenomena', AdminPhenomenaController::class)->parameters([
+    Route::resource('phenomena', AdminPhenomenaController::class)
+    //aggiungo questi parametri perche cosi la route el url si aspetta Phenomena in singolare e ha piu senso (cosi e acnhe uguale a quello di galaxy)
+    ->parameters([
         'phenomena' => 'phenomenon',
     ]);
 

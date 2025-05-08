@@ -110,10 +110,10 @@ class GalaxyController extends Controller
             }
 
             //carico l'img nuova
-            $file_url = Storage::putFile("galaxies", $data['image']);
+            $image_url = Storage::putFile("galaxies", $data['image']);
 
             //aggionamento del db
-            $galaxy->image = $file_url;
+            $galaxy->image = $image_url;
         }
 
         $galaxy->update();
@@ -138,7 +138,6 @@ class GalaxyController extends Controller
      */
     public function destroy(Galaxy $galaxy)
     {
-        // dd($galaxy);
         //se c'è una img 
         if (!empty($galaxy->image)) {
             Storage::delete($galaxy->image);

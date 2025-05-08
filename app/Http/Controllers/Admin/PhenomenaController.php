@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Phenomenon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PhenomenaController extends Controller
 {
@@ -31,10 +32,23 @@ class PhenomenaController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        // dd($data);
 
         $newPhenomenon = new Phenomenon();
 
-        
+        $newPhenomenon->name = $data['name'];
+        $newPhenomenon->description = $data['description'];
+
+        if(array_key_exists('image', $data)){
+            $image_url = Storage::putFile("phenomena", $data['image']);
+
+            $newPhenomenon->image = $image_url;
+        }
+
+        // dd($data);
+        $newPhenomenon->save();
+
+        return redirect()->route('phenomena.show', $newPhenomenon);
     }
 
     /**
@@ -48,24 +62,49 @@ class PhenomenaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Phenomenon $phenomenon)
     {
-        //
+        return view('phenomena.editPhen', compact('phenomenon'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Phenomenon $phenomenon)
     {
-        //
+        $data = $request->all();
+
+        $phenomenon->name = $data['name'];
+        $phenomenon->description = $data['description'];
+
+        if(array_key_exists('image',$data)){
+            if($phenomenon->image !== null){
+
+                Storage::delete($phenomenon->image);
+
+            }
+
+            $image_url = Storage::putFile('phenomena', $data['image']);
+
+            $phenomenon->image = $image_url;
+        }
+
+        $phenomenon->update();
+
+        return redirect()->route('phenomena.show', compact('phenomenon'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Phenomenon $phenomenon)
     {
-        //
+        if (!empty($phenomenon->image)) {
+            Storage::delete($phenomenon->image);
+        }
+
+        $phenomenon->delete();
+
+        return redirect()->route('phenomena.index');
     }
 }
