@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Phenomenon;
 use Illuminate\Http\Request;
 
 class PhenomenaController extends Controller
@@ -12,7 +13,8 @@ class PhenomenaController extends Controller
      */
     public function index()
     {
-        //
+        $phenomena = Phenomenon::all();
+        return view('phenomena.indexPhen', compact('phenomena'));
     }
 
     /**

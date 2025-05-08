@@ -19,9 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('galaxies', AdminGalaxyController::class);
+Route::resource('galaxies', AdminGalaxyController::class)->middleware(['auth','verified']);
 
-Route::resource('/phenomena', AdminPhenomenaController::class);
+Route::resource('phenomena', AdminPhenomenaController::class);
 
 
 require __DIR__.'/auth.php';
