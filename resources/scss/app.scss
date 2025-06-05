@@ -3,3 +3,30 @@
 body {
     font-family: "Pixelify Sans", sans-serif;
 }
+.cosmic-bg {
+    background-image: url('https://images.aeonmedia.co/images/78ba87e7-7198-4468-81b5-500c505d5bc8/essay-gettyimages-1237093074.jpg?width=1200&quality=75&format=auto');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: calc(100vh - 56px);
+}
+
+.cosmic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.cosmic-content {
+    z-index: 2;
+    position: relative;
+}
+
+.cosmic-welcome {
+    font-weight: bold;
+    color: #c300ff;
+}
